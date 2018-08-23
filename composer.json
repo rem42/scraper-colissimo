@@ -1,0 +1,23 @@
+{
+  "name": "rem42/scraper-colissimo",
+  "description": "API Colissimo La Poste",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "rem42",
+      "email": "me@remy.ovh",
+      "homepage": "https://remy.ovh"
+    }
+  ],
+  "require": {
+    "php": ">=5.5.9",
+    "google/apiclient": "^2.0",
+    "jms/serializer-bundle": "^2.0",
+    "rem42/scraper": "^1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Scraper\\ScraperColissimo\\": ""
+    }
+  }
+}
