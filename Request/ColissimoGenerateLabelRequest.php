@@ -12,5 +12,15 @@ use Scraper\Scraper\Annotation\UrlAnnotation;
  */
 class ColissimoGenerateLabelRequest extends ColissimoRequest
 {
+	public function isDoRequest(){
+		return true;
+	}
 
+	public function getAction(){
+		return 'generateLabel';
+	}
+
+	public function getVersion(){
+		return '2.0';
+	}
 }
