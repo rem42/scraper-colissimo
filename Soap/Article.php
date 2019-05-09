@@ -25,8 +25,8 @@ class Article
 	 */
 	protected $quantity;
 	/**
-	 * @var integer
-	 * @Serializer\Type("integer")
+	 * @var float
+	 * @Serializer\Type("float")
 	 * @Serializer\XmlElement(cdata=false)
 	 * @Serializer\SerializedName("weight")
 	 */
@@ -227,19 +227,19 @@ class Article
 	}
 
 	/**
-	 * @return int
+	 * @return float
 	 */
-	public function getWeight(): ?int
+	public function getWeight(): ?float
 	{
 		return $this->weight;
 	}
 
 	/**
-	 * @param int $weight
+	 * @param float $weight
 	 *
 	 * @return $this
 	 */
-	public function setWeight(?int $weight)
+	public function setWeight(?float $weight)
 	{
 		$this->weight = $weight;
 		return $this;
