@@ -10,14 +10,34 @@
     }
   ],
   "require": {
-    "php": ">=5.5.9",
-    "google/apiclient": "^2.0",
+    "php": "^7.4",
     "jms/serializer-bundle": "^2.0",
-    "rem42/scraper": "^1.0"
+    "rem42/scraper": "*"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "2.16.*",
+    "phpstan/phpstan": "0.12.*"
   },
   "autoload": {
     "psr-4": {
-      "Scraper\\ScraperColissimo\\": ""
+      "Scraper\\ScraperColissimo\\": "src/"
     }
-  }
+  },
+  "config": {
+    "bin-dir": "bin/"
+  },
+  "scripts": {
+    "static-analysis": "./bin/phpstan analyse src --level=max --no-progress -vvv",
+    "code-style-check": "./bin/php-cs-fixer fix --dry-run --verbose",
+    "code-style-fix": "./bin/php-cs-fixer fix"
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "../Scraper",
+      "options": {
+        "symlink": true
+      }
+    }
+  ]
 }
