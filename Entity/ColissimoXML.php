@@ -4,73 +4,73 @@ namespace Scraper\ScraperColissimo\Entity;
 
 class ColissimoXML
 {
-	/**
-	 * @var string
-	 */
-	protected $xml;
-	/**
-	 * @var string
-	 */
-	protected $file;
-	/**
-	 * @var string
-	 */
-	protected $cn23;
+    /**
+     * @var string
+     */
+    protected $xml;
+    /**
+     * @var string
+     */
+    protected $file;
+    /**
+     * @var string
+     */
+    protected $cn23;
 
-	/**
-	 * @return string
-	 */
-	public function getCn23(): ?string
-	{
-		return $this->cn23;
-	}
+    /**
+     * @return string
+     */
+    public function getCn23(): ?string
+    {
+        return $this->cn23;
+    }
 
-	/**
-	 * @param string $cn23
-	 *
-	 * @return $this
-	 */
-	public function setCn23(?string $cn23)
-	{
-		$this->cn23 = $cn23;
-		return $this;
-	}
+    /**
+     * @param string $cn23
+     *
+     * @return $this
+     */
+    public function setCn23(?string $cn23)
+    {
+        $this->cn23 = $cn23;
+        return $this;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function getFile(): ?string
-	{
-		return $this->file;
-	}
+    /**
+     * @return string
+     */
+    public function getFile(): ?string
+    {
+        return $this->file;
+    }
 
-	/**
-	 * @param string $file
-	 *
-	 * @return $this
-	 */
-	public function setFile(?string $file)
-	{
-		$this->file = $file;
-		return $this;
-	}
+    /**
+     * @param string $file
+     *
+     * @return $this
+     */
+    public function setFile(?string $file)
+    {
+        $this->file = $file;
+        return $this;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function getXml(): ?string
-	{
-		return $this->xml;
-	}
+    /**
+     * @return string
+     */
+    public function getXml(): ?string
+    {
+        return $this->xml;
+    }
 
-	/**
-	 * @param string $xml
-	 *
-	 * @return $this
-	 */
-	public function setXml(?string $xml)
-	{
-		$this->xml = $xml;
-		return $this;
-	}
+    /**
+     * @param string $xml
+     *
+     * @return $this
+     */
+    public function setXml(?string $xml)
+    {
+        $this->xml = $xml;
+        return $this;
+    }
 }
