@@ -10,7 +10,7 @@ use Scraper\ScraperColissimo\Soap\Envelope;
 /**
  * Class ColissimoRequest
  *
- * @UrlAnnotation(baseUrl="https://ws.colissimo.fr", protocol="SOAP")
+ * @UrlAnnotation(baseUrl="http://ws.colissimo.fr", protocol="SOAP")
  */
 abstract class ColissimoRequest extends Request
 {
