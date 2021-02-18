@@ -2,52 +2,26 @@
 
 namespace Scraper\ScraperColissimo\Soap;
 
-use JMS\Serializer\Annotation as Serializer;
-
-class OutputFormat
+final class OutputFormat
 {
-    /** @Serializer\Exclude() */
-    public static string $ZPL_10X15_203DPI = 'ZPL_10x15_203dpi';
-    /** @Serializer\Exclude() */
-    public static string $ZPL_10X15_300DPI = 'ZPL_10x15_300dpi';
-    /** @Serializer\Exclude() */
-    public static string $DPL_10X15_203DPI = 'DPL_10x15_203dpi';
-    /** @Serializer\Exclude() */
-    public static string $DPL_10X15_300DPI = 'DPL_10x15_300dpi';
-    /** @Serializer\Exclude() */
-    public static string $PDF_10X15_300DPI = 'PDF_10x15_300dpi';
-    /** @Serializer\Exclude() */
-    public static string $PDF_A4_300DPI = 'PDF_A4_300dpi';
-    /** @Serializer\Exclude() */
-    public static string $RETURNTYPE_SENDPDFBYMAIL = 'SendPDFByMail';
-    /** @Serializer\Exclude() */
+    public static string $ZPL_10X15_203DPI             = 'ZPL_10x15_203dpi';
+    public static string $ZPL_10X15_300DPI             = 'ZPL_10x15_300dpi';
+    public static string $DPL_10X15_203DPI             = 'DPL_10x15_203dpi';
+    public static string $DPL_10X15_300DPI             = 'DPL_10x15_300dpi';
+    public static string $PDF_10X15_300DPI             = 'PDF_10x15_300dpi';
+    public static string $PDF_A4_300DPI                = 'PDF_A4_300dpi';
+    public static string $RETURNTYPE_SENDPDFBYMAIL     = 'SendPDFByMail';
     public static string $RETURNTYPE_SENDPDFLINKBYMAIL = 'SendPDFLinkByMail';
-    /**
-     * @Serializer\Type("integer")
-     * @Serializer\XmlElement(cdata=false)
-     * @Serializer\SerializedName("x")
-     */
-    protected int $x = 0;
-    /**
-     * @Serializer\Type("integer")
-     * @Serializer\XmlElement(cdata=false)
-     * @Serializer\SerializedName("y")
-     */
-    protected int $y = 0;
-    /**
-     * @Serializer\Type("string")
-     * @Serializer\XmlElement(cdata=false)
-     * @Serializer\SerializedName("outputPrintingType")
-     */
-    protected string $outputPrintingType;
-    /**
-     * @Serializer\Type("string")
-     * @Serializer\XmlElement(cdata=false)
-     * @Serializer\SerializedName("returnType")
-     */
-    protected string $returnType;
 
-    public function getX(): ?int
+    private int $x = 0;
+
+    private int $y = 0;
+
+    private string $outputPrintingType;
+
+    private ?string $returnType = null;
+
+    public function getX(): int
     {
         return $this->x;
     }
@@ -59,7 +33,7 @@ class OutputFormat
         return $this;
     }
 
-    public function getY(): ?int
+    public function getY(): int
     {
         return $this->y;
     }
@@ -71,7 +45,7 @@ class OutputFormat
         return $this;
     }
 
-    public function getOutputPrintingType(): ?string
+    public function getOutputPrintingType(): string
     {
         return $this->outputPrintingType;
     }
@@ -88,7 +62,7 @@ class OutputFormat
         return $this->returnType;
     }
 
-    public function setReturnType(string $returnType): self
+    public function setReturnType(?string $returnType = null): self
     {
         $this->returnType = $returnType;
 

@@ -2,28 +2,22 @@
 
 namespace Scraper\ScraperColissimo\Soap;
 
-use JMS\Serializer\Annotation as Serializer;
-
-class Sender
+final class Sender
 {
-    /**
-     * @Serializer\Type("string")
-     * @Serializer\XmlElement(cdata=false)
-     * @Serializer\SerializedName("senderParcelRef")
-     */
-    protected string $senderParcelRef;
-    /**
-     * @Serializer\Type("Scraper\ScraperColissimo\Soap\Address")
-     * @Serializer\SerializedName("address")
-     */
-    protected Address $address;
+    private ?string $senderParcelRef = null;
 
-    /**
-     * Sender constructor.
-     */
+    private Address $address;
+
     public function __construct()
     {
         $this->address = new Address();
+    }
+
+    public function setSenderParcelRef(?string $senderParcelRef = null): self
+    {
+        $this->senderParcelRef = $senderParcelRef;
+
+        return $this;
     }
 
     public function getSenderParcelRef(): ?string
@@ -31,14 +25,7 @@ class Sender
         return $this->senderParcelRef;
     }
 
-    public function setSenderParcelRef(string $senderParcelRef): self
-    {
-        $this->senderParcelRef = $senderParcelRef;
-
-        return $this;
-    }
-
-    public function getAddress(): ?Address
+    public function getAddress(): Address
     {
         return $this->address;
     }

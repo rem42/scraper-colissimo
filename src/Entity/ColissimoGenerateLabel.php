@@ -2,20 +2,20 @@
 
 namespace Scraper\ScraperColissimo\Entity;
 
-class ColissimoGenerateLabel
+final class ColissimoGenerateLabel
 {
-    protected Envelope $enveloppe;
-    protected string $file;
-    protected string $cn23;
+    private Response $response;
+    private ?string $file = null;
+    private ?string $cn23 = null;
 
-    public function getEnveloppe(): ?Envelope
+    public function getResponse(): Response
     {
-        return $this->enveloppe;
+        return $this->response;
     }
 
-    public function setEnveloppe(Envelope $enveloppe): self
+    public function setResponse(Response $response): self
     {
-        $this->enveloppe = $enveloppe;
+        $this->response = $response;
 
         return $this;
     }
@@ -25,7 +25,7 @@ class ColissimoGenerateLabel
         return $this->file;
     }
 
-    public function setFile(string $file): self
+    public function setFile(?string $file = null): self
     {
         $this->file = $file;
 
@@ -37,7 +37,7 @@ class ColissimoGenerateLabel
         return $this->cn23;
     }
 
-    public function setCn23(string $cn23): self
+    public function setCn23(?string $cn23 = null): self
     {
         $this->cn23 = $cn23;
 

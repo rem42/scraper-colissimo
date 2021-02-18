@@ -2,28 +2,49 @@
 
 namespace Scraper\ScraperColissimo\Entity;
 
-use JMS\Serializer\Annotation as Serializer;
+use Symfony\Component\Serializer\Annotation\SerializedName;
 
-class Response
+final class Response
 {
-    /**
-     * @Serializer\Type("Scraper\ScraperColissimo\Entity\Messages")
-     * @Serializer\SerializedName("messages")
-     */
-    protected Messages $messages;
-    /**
-     * @Serializer\Type("Scraper\ScraperColissimo\Entity\LabelResponse")
-     * @Serializer\SerializedName("labelResponse")
-     */
-    protected LabelResponse $labelResponse;
+    /** @var array<Message> */
+    private array $messages;
 
-    public function getMessages(): ?Messages
+    /** @SerializedName("labelV2Response") */
+    private LabelResponse $labelResponse;
+
+    public function addMessage(Message $message): self
+    {
+        $this->messages[] = $message;
+        return $this;
+    }
+
+    /**
+     * @param array<Message> $messages
+     */
+    public function setMessages(array $messages): self
+    {
+        $this->messages = $messages;
+
+        return $this;
+    }
+
+    /**
+     * @return Message[]
+     */
+    public function getMessages(): array
     {
         return $this->messages;
     }
 
-    public function getLabelResponse(): ?LabelResponse
+    public function getLabelResponse(): LabelResponse
     {
         return $this->labelResponse;
+    }
+
+    public function setLabelResponse(LabelResponse $labelResponse): self
+    {
+        $this->labelResponse = $labelResponse;
+
+        return $this;
     }
 }

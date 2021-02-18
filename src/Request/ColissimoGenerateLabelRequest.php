@@ -3,24 +3,49 @@
 namespace Scraper\ScraperColissimo\Request;
 
 use Scraper\Scraper\Annotation\Scraper;
+use Scraper\Scraper\Request\RequestBody;
+use Scraper\Scraper\Request\RequestException;
+use Scraper\Scraper\Request\RequestHeaders;
+use Scraper\ScraperColissimo\Factory\SerializerFactory;
+use Scraper\ScraperColissimo\Soap\GenerateLabelRequest;
 
 /**
- * @Scraper(path="/sls-ws/SlsServiceWS?wsdl", responseAdapter="Scraper\ScraperColissimo\Adapter\ColissimoAdapter")
+ * @Scraper(path="generateLabel", method="POST")
  */
-class ColissimoGenerateLabelRequest extends ColissimoRequest
+class ColissimoGenerateLabelRequest extends ColissimoRequest implements RequestBody, RequestHeaders, RequestException
 {
-    public function isDoRequest()
+    protected GenerateLabelRequest $generateLabelRequest;
+
+    public function __construct(string $contractNumber, string $password)
     {
-        return true;
+        $this->generateLabelRequest = new GenerateLabelRequest();
+        $this->generateLabelRequest
+            ->setContractNumber($contractNumber)
+            ->setPassword($password)
+        ;
     }
 
-    public function getAction()
+    public function isThrow(): bool
     {
-        return 'generateLabel';
+        return false;
     }
 
-    public function getVersion()
+    public function getHeaders(): array
     {
-        return '2.0';
+        return [
+            'Content-Type' => 'application/json',
+        ];
+    }
+
+    public function getBody(): string
+    {
+        $serializer = SerializerFactory::create();
+
+        return $serializer->serialize($this->generateLabelRequest, 'json');
+    }
+
+    public function getGenerateLabelRequest(): GenerateLabelRequest
+    {
+        return $this->generateLabelRequest;
     }
 }

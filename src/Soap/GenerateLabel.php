@@ -2,22 +2,16 @@
 
 namespace Scraper\ScraperColissimo\Soap;
 
-use JMS\Serializer\Annotation as Serializer;
-
-class GenerateLabel
+final class GenerateLabel
 {
-    /**
-     * @Serializer\Type("Scraper\ScraperColissimo\Soap\GenerateLabelRequest")
-     * @Serializer\SerializedName("generateLabelRequest")
-     */
-    protected GenerateLabelRequest $generateLabelRequest;
+    private GenerateLabelRequest $generateLabelRequest;
 
     public function __construct()
     {
         $this->generateLabelRequest = new GenerateLabelRequest();
     }
 
-    public function getGenerateLabelRequest(): ?GenerateLabelRequest
+    public function getGenerateLabelRequest(): GenerateLabelRequest
     {
         return $this->generateLabelRequest;
     }

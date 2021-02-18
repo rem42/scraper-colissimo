@@ -2,22 +2,10 @@
 
 namespace Scraper\ScraperColissimo\Soap;
 
-use JMS\Serializer\Annotation as Serializer;
-
-/**
- * Class Fields
- */
-class Fields
+final class Fields
 {
-    /**
-     * @Serializer\Type("Scraper\ScraperColissimo\Soap\Field")
-     * @Serializer\SerializedName("field")
-     */
-    protected Field $field;
+    private Field $field;
 
-    /**
-     * Body constructor.
-     */
     public function __construct()
     {
         $this->field = new Field();

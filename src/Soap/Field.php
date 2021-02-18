@@ -2,24 +2,13 @@
 
 namespace Scraper\ScraperColissimo\Soap;
 
-use JMS\Serializer\Annotation as Serializer;
-
-class Field
+final class Field
 {
-    /**
-     * @Serializer\Type("string")
-     * @Serializer\XmlElement(cdata=false)
-     * @Serializer\SerializedName("key")
-     */
-    protected string $key;
-    /**
-     * @Serializer\Type("string")
-     * @Serializer\XmlElement(cdata=false)
-     * @Serializer\SerializedName("value")
-     */
-    protected string $value;
+    private string $key;
 
-    public function getKey(): ?string
+    private string $value;
+
+    public function getKey(): string
     {
         return $this->key;
     }
@@ -31,7 +20,7 @@ class Field
         return $this;
     }
 
-    public function getValue(): ?string
+    public function getValue(): string
     {
         return $this->value;
     }

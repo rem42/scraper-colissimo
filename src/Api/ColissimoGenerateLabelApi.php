@@ -2,32 +2,23 @@
 
 namespace Scraper\ScraperColissimo\Api;
 
-use JMS\Serializer\SerializerBuilder;
+use Scraper\ScraperColissimo\Adapter\ColissimoAdapter;
 use Scraper\ScraperColissimo\Entity\ColissimoGenerateLabel;
-use Scraper\ScraperColissimo\Entity\ColissimoXML;
-use Scraper\ScraperColissimo\Entity\Envelope;
-use Scraper\ScraperColissimo\Request\ColissimoGenerateLabelRequest;
+use Scraper\ScraperColissimo\Entity\Response;
 
-class ColissimoGenerateLabelApi extends ColissimoApi
+final class ColissimoGenerateLabelApi extends ColissimoApi
 {
-    /** @var ColissimoGenerateLabelRequest */
-    protected $request;
-
-    /** @var ColissimoXML */
-    protected $data;
-
     public function execute()
     {
-        $colissimoGenerateLabel = new ColissimoGenerateLabel();
-        $serializer             = SerializerBuilder::create()
-            ->build()
-        ;
-        $enveloppe              = $serializer->deserialize($this->data->getXml(), Envelope::class, 'xml');
-        $colissimoGenerateLabel->setEnveloppe($enveloppe);
-        $colissimoGenerateLabel->setFile($this->data->getFile());
+        $colissimoXML = ColissimoAdapter::execute($this->response);
+        $response     = $this->serializer->deserialize($colissimoXML->getJson(), Response::class, 'json');
 
-        if (null !== $this->data->getCn23() && strlen($this->data->getCn23()) > 0) {
-            $colissimoGenerateLabel->setCn23($this->data->getCn23());
+        $colissimoGenerateLabel = new ColissimoGenerateLabel();
+        $colissimoGenerateLabel->setResponse($response);
+        $colissimoGenerateLabel->setFile($colissimoXML->getFile());
+
+        if (!empty($colissimoXML->getCn23())) {
+            $colissimoGenerateLabel->setCn23($colissimoXML->getCn23());
         }
 
         return $colissimoGenerateLabel;

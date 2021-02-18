@@ -2,6 +2,6 @@
 
 namespace Scraper\ScraperColissimo\Soap;
 
-class Header
+final class Header
 {
 }

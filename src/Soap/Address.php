@@ -2,119 +2,48 @@
 
 namespace Scraper\ScraperColissimo\Soap;
 
-use JMS\Serializer\Annotation as Serializer;
-
-class Address
+final class Address
 {
-    /**
-     * @Serializer\Type("string")
-     * @Serializer\XmlElement(cdata=false)
-     * @Serializer\SerializedName("companyName")
-     */
-    protected string $companyName;
-    /**
-     * @Serializer\Type("string")
-     * @Serializer\XmlElement(cdata=false)
-     * @Serializer\SerializedName("lastName")
-     */
-    protected string $lastName;
-    /**
-     * @Serializer\Type("string")
-     * @Serializer\XmlElement(cdata=false)
-     * @Serializer\SerializedName("firstName")
-     */
-    protected string $firstName;
-    /**
-     * @Serializer\Type("string")
-     * @Serializer\XmlElement(cdata=false)
-     * @Serializer\SerializedName("line0")
-     */
-    protected string $line0;
-    /**
-     * @Serializer\Type("string")
-     * @Serializer\XmlElement(cdata=false)
-     * @Serializer\SerializedName("line1")
-     */
-    protected string $line1;
-    /**
-     * @Serializer\Type("string")
-     * @Serializer\XmlElement(cdata=false)
-     * @Serializer\SerializedName("line2")
-     */
-    protected string $line2;
-    /**
-     * @Serializer\Type("string")
-     * @Serializer\XmlElement(cdata=false)
-     * @Serializer\SerializedName("line3")
-     */
-    protected string $line3;
-    /**
-     * @Serializer\Type("string")
-     * @Serializer\XmlElement(cdata=false)
-     * @Serializer\SerializedName("countryCode")
-     */
-    protected string $countryCode;
-    /**
-     * @Serializer\Type("string")
-     * @Serializer\XmlElement(cdata=false)
-     * @Serializer\SerializedName("city")
-     */
-    protected string $city;
-    /**
-     * @Serializer\Type("string")
-     * @Serializer\XmlElement(cdata=false)
-     * @Serializer\SerializedName("zipCode")
-     */
-    protected string $zipCode;
-    /**
-     * @Serializer\Type("string")
-     * @Serializer\XmlElement(cdata=false)
-     * @Serializer\SerializedName("phoneNumber")
-     */
-    protected string $phoneNumber;
-    /**
-     * @Serializer\Type("string")
-     * @Serializer\XmlElement(cdata=false)
-     * @Serializer\SerializedName("mobileNumber")
-     */
-    protected string $mobileNumber;
-    /**
-     * @Serializer\Type("string")
-     * @Serializer\XmlElement(cdata=false)
-     * @Serializer\SerializedName("doorCode1")
-     */
-    protected string $doorCode1;
-    /**
-     * @Serializer\Type("string")
-     * @Serializer\XmlElement(cdata=false)
-     * @Serializer\SerializedName("doorCode2")
-     */
-    protected string $doorCode2;
-    /**
-     * @Serializer\Type("string")
-     * @Serializer\XmlElement(cdata=false)
-     * @Serializer\SerializedName("email")
-     */
-    protected string $email;
-    /**
-     * @Serializer\Type("string")
-     * @Serializer\XmlElement(cdata=false)
-     * @Serializer\SerializedName("intercom")
-     */
-    protected string $intercom;
-    /**
-     * @Serializer\Type("string")
-     * @Serializer\XmlElement(cdata=false)
-     * @Serializer\SerializedName("language")
-     */
-    protected string $language;
+    private ?string $companyName = null;
+
+    private ?string $lastName = null;
+
+    private ?string $firstName = null;
+
+    private ?string $line0 = null;
+
+    private ?string $line1 = null;
+
+    private ?string $line2 = null;
+
+    private ?string $line3 = null;
+
+    private string $countryCode;
+
+    private ?string $city = null;
+
+    private string $zipCode;
+
+    private ?string $phoneNumber = null;
+
+    private ?string $mobileNumber = null;
+
+    private ?string $doorCode1 = null;
+
+    private ?string $doorCode2 = null;
+
+    private ?string $email = null;
+
+    private ?string $intercom = null;
+
+    private string $language = 'FR';
 
     public function getCompanyName(): ?string
     {
         return $this->companyName;
     }
 
-    public function setCompanyName(string $companyName): self
+    public function setCompanyName(?string $companyName = null): self
     {
         $this->companyName = $companyName;
 
@@ -126,7 +55,7 @@ class Address
         return $this->lastName;
     }
 
-    public function setLastName(string $lastName): self
+    public function setLastName(?string $lastName = null): self
     {
         $this->lastName = $lastName;
 
@@ -138,7 +67,7 @@ class Address
         return $this->firstName;
     }
 
-    public function setFirstName(string $firstName): self
+    public function setFirstName(?string $firstName = null): self
     {
         $this->firstName = $firstName;
 
@@ -150,7 +79,7 @@ class Address
         return $this->line0;
     }
 
-    public function setLine0(string $line0): self
+    public function setLine0(?string $line0 = null): self
     {
         $this->line0 = $line0;
 
@@ -162,7 +91,7 @@ class Address
         return $this->line1;
     }
 
-    public function setLine1(string $line1): self
+    public function setLine1(?string $line1 = null): self
     {
         $this->line1 = $line1;
 
@@ -174,7 +103,7 @@ class Address
         return $this->line2;
     }
 
-    public function setLine2(string $line2): self
+    public function setLine2(?string $line2 = null): self
     {
         $this->line2 = $line2;
 
@@ -186,14 +115,14 @@ class Address
         return $this->line3;
     }
 
-    public function setLine3(string $line3): self
+    public function setLine3(?string $line3 = null): self
     {
         $this->line3 = $line3;
 
         return $this;
     }
 
-    public function getCountryCode(): ?string
+    public function getCountryCode(): string
     {
         return $this->countryCode;
     }
@@ -210,14 +139,14 @@ class Address
         return $this->city;
     }
 
-    public function setCity(string $city): self
+    public function setCity(?string $city = null): self
     {
         $this->city = $city;
 
         return $this;
     }
 
-    public function getZipCode(): ?string
+    public function getZipCode(): string
     {
         return $this->zipCode;
     }
@@ -234,7 +163,7 @@ class Address
         return $this->phoneNumber;
     }
 
-    public function setPhoneNumber(string $phoneNumber): self
+    public function setPhoneNumber(?string $phoneNumber = null): self
     {
         $this->phoneNumber = $phoneNumber;
 
@@ -246,7 +175,7 @@ class Address
         return $this->mobileNumber;
     }
 
-    public function setMobileNumber(string $mobileNumber): self
+    public function setMobileNumber(?string $mobileNumber = null): self
     {
         $this->mobileNumber = $mobileNumber;
 
@@ -258,7 +187,7 @@ class Address
         return $this->doorCode1;
     }
 
-    public function setDoorCode1(string $doorCode1): self
+    public function setDoorCode1(?string $doorCode1 = null): self
     {
         $this->doorCode1 = $doorCode1;
 
@@ -270,7 +199,7 @@ class Address
         return $this->doorCode2;
     }
 
-    public function setDoorCode2(string $doorCode2): self
+    public function setDoorCode2(?string $doorCode2 = null): self
     {
         $this->doorCode2 = $doorCode2;
 
@@ -282,7 +211,7 @@ class Address
         return $this->email;
     }
 
-    public function setEmail(string $email): self
+    public function setEmail(?string $email = null): self
     {
         $this->email = $email;
 
@@ -294,14 +223,14 @@ class Address
         return $this->intercom;
     }
 
-    public function setIntercom(string $intercom): self
+    public function setIntercom(?string $intercom = null): self
     {
         $this->intercom = $intercom;
 
         return $this;
     }
 
-    public function getLanguage(): ?string
+    public function getLanguage(): string
     {
         return $this->language;
     }

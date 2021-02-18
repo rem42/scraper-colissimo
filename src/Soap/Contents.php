@@ -3,22 +3,14 @@
 namespace Scraper\ScraperColissimo\Soap;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use JMS\Serializer\Annotation as Serializer;
+use Doctrine\Common\Collections\Collection;
 
-class Contents
+final class Contents
 {
-    /**
-     * @var ArrayCollection<int, Article>
-     * @Serializer\Type("ArrayCollection<Scraper\ScraperColissimo\Soap\Article>")
-     * @Serializer\XmlList(inline=true, entry="article")
-     * @Serializer\SerializedName("article")
-     */
-    protected ArrayCollection $article;
-    /**
-     * @Serializer\Type("Scraper\ScraperColissimo\Soap\Category")
-     * @Serializer\SerializedName("category")
-     */
-    protected Category $category;
+    /** @var Collection<int, Article> */
+    private Collection $article;
+
+    private Category $category;
 
     public function __construct()
     {
@@ -26,16 +18,16 @@ class Contents
         $this->category = new Category();
     }
 
-    public function addArticle(): Article
+    public function addArticle(Article $article): self
     {
-        $this->article->add(new Article());
-        return $this->article->last();
+        $this->article->add($article);
+        return $this;
     }
 
     /**
-     * @return ArrayCollection<int, Article>
+     * @return Collection<int, Article>
      */
-    public function getArticle(): ArrayCollection
+    public function getArticle(): Collection
     {
         return $this->article;
     }

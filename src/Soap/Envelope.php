@@ -2,26 +2,11 @@
 
 namespace Scraper\ScraperColissimo\Soap;
 
-use JMS\Serializer\Annotation as Serializer;
-
-/**
- * @Serializer\XmlNamespace(uri="http://schemas.xmlsoap.org/soap/envelope/", prefix="soapenv")
- * @Serializer\XmlRoot("soapenv:Envelope")
- */
-class Envelope
+final class Envelope
 {
-    /**
-     * @Serializer\Type("Scraper\ScraperColissimo\Soap\Header")
-     * @Serializer\XmlElement(namespace="http://schemas.xmlsoap.org/soap/envelope/")
-     * @Serializer\SerializedName("Header")
-     */
-    protected Header $header;
-    /**
-     * @Serializer\Type("Scraper\ScraperColissimo\Soap\Body")
-     * @Serializer\XmlElement(namespace="http://schemas.xmlsoap.org/soap/envelope/")
-     * @Serializer\SerializedName("Body")
-     */
-    protected Body $body;
+    private Header $header;
+
+    private Body $body;
 
     public function __construct()
     {

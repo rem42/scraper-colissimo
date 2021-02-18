@@ -2,66 +2,31 @@
 
 namespace Scraper\ScraperColissimo\Soap;
 
-use JMS\Serializer\Annotation as Serializer;
-
-class Article
+final class Article
 {
-    /**
-     * @Serializer\Type("string")
-     * @Serializer\XmlElement(cdata=false)
-     * @Serializer\SerializedName("description")
-     */
-    protected string $description;
-    /**
-     * @Serializer\Type("integer")
-     * @Serializer\XmlElement(cdata=false)
-     * @Serializer\SerializedName("quantity")
-     */
-    protected int $quantity;
-    /**
-     * @Serializer\Type("float")
-     * @Serializer\XmlElement(cdata=false)
-     * @Serializer\SerializedName("weight")
-     */
-    protected float $weight;
-    /**
-     * @Serializer\Type("integer")
-     * @Serializer\XmlElement(cdata=false)
-     * @Serializer\SerializedName("value")
-     */
-    protected int $value;
-    /**
-     * @Serializer\Type("string")
-     * @Serializer\XmlElement(cdata=false)
-     * @Serializer\SerializedName("hsCode")
-     */
-    protected string $hsCode;
-    /**
-     * @Serializer\Type("string")
-     * @Serializer\XmlElement(cdata=false)
-     * @Serializer\SerializedName("originCountry")
-     */
-    protected string $originCountry;
-    /**
-     * @Serializer\Type("string")
-     * @Serializer\XmlElement(cdata=false)
-     * @Serializer\SerializedName("currency")
-     */
-    protected string $currency;
-    /**
-     * @Serializer\Type("string")
-     * @Serializer\XmlElement(cdata=false)
-     * @Serializer\SerializedName("artref")
-     */
-    protected string $artref;
-    /**
-     * @Serializer\Type("string")
-     * @Serializer\XmlElement(cdata=false)
-     * @Serializer\SerializedName("originalIdent")
-     */
-    protected string $originalIdent;
+    private string $description;
 
-    public function getDescription(): ?string
+    private int $quantity;
+
+    private float $weight;
+
+    private int $value;
+
+    private ?int $hsCode = null;
+
+    private ?string $originCountry = null;
+
+    private ?string $currency = null;
+
+    private ?string $artref = null;
+
+    private ?string $originalIdent = null;
+
+    private ?int $vatAmount = null;
+
+    private ?int $customsFees = null;
+
+    public function getDescription(): string
     {
         return $this->description;
     }
@@ -73,7 +38,7 @@ class Article
         return $this;
     }
 
-    public function getQuantity(): ?int
+    public function getQuantity(): int
     {
         return $this->quantity;
     }
@@ -85,7 +50,7 @@ class Article
         return $this;
     }
 
-    public function getWeight(): ?float
+    public function getWeight(): float
     {
         return $this->weight;
     }
@@ -97,7 +62,7 @@ class Article
         return $this;
     }
 
-    public function getValue(): ?int
+    public function getValue(): int
     {
         return $this->value;
     }
@@ -109,12 +74,12 @@ class Article
         return $this;
     }
 
-    public function getHsCode(): ?string
+    public function getHsCode(): ?int
     {
         return $this->hsCode;
     }
 
-    public function setHsCode(string $hsCode): self
+    public function setHsCode(?int $hsCode = null): self
     {
         $this->hsCode = $hsCode;
 
@@ -126,7 +91,7 @@ class Article
         return $this->originCountry;
     }
 
-    public function setOriginCountry(string $originCountry): self
+    public function setOriginCountry(?string $originCountry = null): self
     {
         $this->originCountry = $originCountry;
 
@@ -138,7 +103,7 @@ class Article
         return $this->currency;
     }
 
-    public function setCurrency(string $currency): self
+    public function setCurrency(?string $currency = null): self
     {
         $this->currency = $currency;
 
@@ -150,7 +115,7 @@ class Article
         return $this->artref;
     }
 
-    public function setArtref(string $artref): self
+    public function setArtref(?string $artref = null): self
     {
         $this->artref = $artref;
 
@@ -162,9 +127,33 @@ class Article
         return $this->originalIdent;
     }
 
-    public function setOriginalIdent(string $originalIdent): self
+    public function setOriginalIdent(?string $originalIdent = null): self
     {
         $this->originalIdent = $originalIdent;
+
+        return $this;
+    }
+
+    public function getVatAmount(): ?int
+    {
+        return $this->vatAmount;
+    }
+
+    public function setVatAmount(?int $vatAmount = null): self
+    {
+        $this->vatAmount = $vatAmount;
+
+        return $this;
+    }
+
+    public function getCustomsFees(): ?int
+    {
+        return $this->customsFees;
+    }
+
+    public function setCustomsFees(?int $customsFees = null): self
+    {
+        $this->customsFees = $customsFees;
 
         return $this;
     }

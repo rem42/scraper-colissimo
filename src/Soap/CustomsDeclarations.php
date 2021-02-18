@@ -2,60 +2,27 @@
 
 namespace Scraper\ScraperColissimo\Soap;
 
-use JMS\Serializer\Annotation as Serializer;
-
-class CustomsDeclarations
+final class CustomsDeclarations
 {
-    /**
-     * @Serializer\Type("boolean")
-     * @Serializer\SerializedName("includeCustomsDeclarations")
-     */
-    protected bool $includeCustomsDeclarations;
-    /**
-     * @Serializer\Type("Scraper\ScraperColissimo\Soap\Contents")
-     * @Serializer\SerializedName("contents")
-     */
-    protected Contents $contents;
-    /**
-     * @Serializer\Type("string")
-     * @Serializer\SerializedName("importersReference")
-     */
-    protected string $importersReference;
-    /**
-     * @Serializer\Type("string")
-     * @Serializer\SerializedName("flowTransport")
-     */
-    protected string $flowTransport;
-    /**
-     * @Serializer\Type("string")
-     * @Serializer\SerializedName("importersContact")
-     */
-    protected string $importersContact;
-    /**
-     * @Serializer\Type("string")
-     * @Serializer\SerializedName("officeOrigin")
-     */
-    protected string $officeOrigin;
-    /**
-     * @Serializer\Type("string")
-     * @Serializer\SerializedName("comments")
-     */
-    protected string $comments;
-    /**
-     * @Serializer\Type("string")
-     * @Serializer\SerializedName("invoiceNumber")
-     */
-    protected string $invoiceNumber;
-    /**
-     * @Serializer\Type("string")
-     * @Serializer\SerializedName("licenceNumber")
-     */
-    protected string $licenceNumber;
-    /**
-     * @Serializer\Type("string")
-     * @Serializer\SerializedName("certificatNumber")
-     */
-    protected string $certificatNumber;
+    private bool $includeCustomsDeclarations;
+
+    private Contents $contents;
+
+    private string $importersReference;
+
+    private string $flowTransport;
+
+    private string $importersContact;
+
+    private string $officeOrigin;
+
+    private string $comments;
+
+    private string $invoiceNumber;
+
+    private string $licenceNumber;
+
+    private string $certificatNumber;
 
     public function __construct()
     {
