@@ -1,6 +1,6 @@
 <?php
 
-namespace Scraper\ScraperColissimo\Soap;
+namespace Scraper\ScraperColissimo\Rest;
 
 final class Fields
 {

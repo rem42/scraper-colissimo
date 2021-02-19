@@ -1,6 +1,6 @@
 <?php
 
-namespace Scraper\ScraperColissimo\Soap;
+namespace Scraper\ScraperColissimo\Rest;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;

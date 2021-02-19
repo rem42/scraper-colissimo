@@ -7,7 +7,7 @@ use Scraper\Scraper\Request\RequestBody;
 use Scraper\Scraper\Request\RequestException;
 use Scraper\Scraper\Request\RequestHeaders;
 use Scraper\ScraperColissimo\Factory\SerializerFactory;
-use Scraper\ScraperColissimo\Soap\GenerateLabelRequest;
+use Scraper\ScraperColissimo\Rest\GenerateLabelRequest;
 
 /**
  * @Scraper(path="generateLabel", method="POST")
