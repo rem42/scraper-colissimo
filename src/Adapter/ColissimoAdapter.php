@@ -85,7 +85,7 @@ final class ColissimoAdapter
     }
 
     /**
-     * @return array<string, int|string>
+     * @return array<string, bool|int|string>
      */
     private static function extractHeader(string $part): array
     {
