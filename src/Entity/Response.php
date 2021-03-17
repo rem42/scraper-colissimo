@@ -2,38 +2,43 @@
 
 namespace Scraper\ScraperColissimo\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Serializer\Annotation\SerializedName;
 
 final class Response
 {
-    /** @var array<Message> */
-    private array $messages;
+    /** @var Collection<int, Message> */
+    private Collection $messages;
 
     /** @SerializedName("labelV2Response") */
     private LabelResponse $labelResponse;
 
-    public function addMessage(Message $message): self
+    public function __construct()
     {
-        $this->messages[] = $message;
-        return $this;
+        $this->messages = new ArrayCollection();
     }
 
     /**
-     * @param array<Message> $messages
+     * @return Collection<int, Message>
      */
-    public function setMessages(array $messages): self
-    {
-        $this->messages = $messages;
-
-        return $this;
-    }
-
-    /**
-     * @return Message[]
-     */
-    public function getMessages(): array
+    public function getMessages(): Collection
     {
         return $this->messages;
+    }
+
+    public function addMessage(Message $message): self
+    {
+        $this->messages->add($message);
+
+        return $this;
+    }
+
+    public function removeMessage(Message $message): self
+    {
+        $this->messages->removeElement($message);
+
+        return $this;
     }
 
     public function getLabelResponse(): LabelResponse

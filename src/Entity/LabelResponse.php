@@ -6,9 +6,9 @@ final class LabelResponse
 {
     private string $parcelNumber;
 
-    private string $parcelNumberPartner;
+    private ?string $parcelNumberPartner = null;
 
-    private ?string $pdfUrl;
+    private ?string $pdfUrl = null;
 
     public function getParcelNumber(): string
     {
@@ -22,12 +22,12 @@ final class LabelResponse
         return $this;
     }
 
-    public function getParcelNumberPartner(): string
+    public function getParcelNumberPartner(): ?string
     {
         return $this->parcelNumberPartner;
     }
 
-    public function setParcelNumberPartner(string $parcelNumberPartner): self
+    public function setParcelNumberPartner(?string $parcelNumberPartner): self
     {
         $this->parcelNumberPartner = $parcelNumberPartner;
 
@@ -39,7 +39,7 @@ final class LabelResponse
         return $this->pdfUrl;
     }
 
-    public function setPdfUrl(?string $pdfUrl = null): self
+    public function setPdfUrl(?string $pdfUrl): self
     {
         $this->pdfUrl = $pdfUrl;
 

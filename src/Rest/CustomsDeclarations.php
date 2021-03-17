@@ -41,7 +41,7 @@ final class CustomsDeclarations
         return $this;
     }
 
-    public function getContents(): ?Contents
+    public function getContents(): Contents
     {
         return $this->contents;
     }

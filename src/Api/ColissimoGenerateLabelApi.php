@@ -10,15 +10,15 @@ final class ColissimoGenerateLabelApi extends ColissimoApi
 {
     public function execute()
     {
-        $colissimoXML = ColissimoAdapter::execute($this->response);
-        $response     = $this->serializer->deserialize($colissimoXML->getJson(), Response::class, 'json');
+        $colissimoAdapter = ColissimoAdapter::execute($this->response);
+        $response         = $this->serializer->deserialize($colissimoAdapter->getJson(), Response::class, 'json');
 
         $colissimoGenerateLabel = new ColissimoGenerateLabel();
         $colissimoGenerateLabel->setResponse($response);
-        $colissimoGenerateLabel->setFile($colissimoXML->getFile());
+        $colissimoGenerateLabel->setFile($colissimoAdapter->getFile());
 
-        if (!empty($colissimoXML->getCn23())) {
-            $colissimoGenerateLabel->setCn23($colissimoXML->getCn23());
+        if (!empty($colissimoAdapter->getCn23())) {
+            $colissimoGenerateLabel->setCn23($colissimoAdapter->getCn23());
         }
 
         return $colissimoGenerateLabel;
