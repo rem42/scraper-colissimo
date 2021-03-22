@@ -6,7 +6,7 @@ use Scraper\Scraper\Annotation\Scraper;
 use Scraper\Scraper\Request\ScraperRequest;
 
 /**
- * @Scraper(scheme="HTTPS", host="ws.colissimo.fr", path="/sls-ws/SlsServiceWSRest/2.0")
+ * @Scraper(scheme="HTTPS", host="ws.colissimo.fr", path="/sls-ws/SlsServiceWSRest")
  */
 abstract class ColissimoRequest extends ScraperRequest
 {
