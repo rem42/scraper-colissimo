@@ -12,7 +12,7 @@ final class Article
 
     private int $value;
 
-    private ?int $hsCode = null;
+    private ?string $hsCode = null;
 
     private ?string $originCountry = null;
 
@@ -74,12 +74,12 @@ final class Article
         return $this;
     }
 
-    public function getHsCode(): ?int
+    public function getHsCode(): ?string
     {
         return $this->hsCode;
     }
 
-    public function setHsCode(?int $hsCode = null): self
+    public function setHsCode(?string $hsCode = null): self
     {
         $this->hsCode = $hsCode;
 
