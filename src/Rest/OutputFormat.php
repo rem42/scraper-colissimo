@@ -1,16 +1,16 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Scraper\ScraperColissimo\Rest;
 
 final class OutputFormat
 {
-    public static string $ZPL_10X15_203DPI             = 'ZPL_10x15_203dpi';
-    public static string $ZPL_10X15_300DPI             = 'ZPL_10x15_300dpi';
-    public static string $DPL_10X15_203DPI             = 'DPL_10x15_203dpi';
-    public static string $DPL_10X15_300DPI             = 'DPL_10x15_300dpi';
-    public static string $PDF_10X15_300DPI             = 'PDF_10x15_300dpi';
-    public static string $PDF_A4_300DPI                = 'PDF_A4_300dpi';
-    public static string $RETURNTYPE_SENDPDFBYMAIL     = 'SendPDFByMail';
+    public static string $ZPL_10X15_203DPI = 'ZPL_10x15_203dpi';
+    public static string $ZPL_10X15_300DPI = 'ZPL_10x15_300dpi';
+    public static string $DPL_10X15_203DPI = 'DPL_10x15_203dpi';
+    public static string $DPL_10X15_300DPI = 'DPL_10x15_300dpi';
+    public static string $PDF_10X15_300DPI = 'PDF_10x15_300dpi';
+    public static string $PDF_A4_300DPI = 'PDF_A4_300dpi';
+    public static string $RETURNTYPE_SENDPDFBYMAIL = 'SendPDFByMail';
     public static string $RETURNTYPE_SENDPDFLINKBYMAIL = 'SendPDFLinkByMail';
 
     private int $x = 0;
@@ -62,7 +62,7 @@ final class OutputFormat
         return $this->returnType;
     }
 
-    public function setReturnType(?string $returnType = null): self
+    public function setReturnType(string $returnType = null): self
     {
         $this->returnType = $returnType;
 

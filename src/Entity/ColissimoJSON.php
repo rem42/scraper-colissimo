@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Scraper\ScraperColissimo\Entity;
 
@@ -13,7 +13,7 @@ final class ColissimoJSON
         return $this->cn23;
     }
 
-    public function setCn23(?string $cn23 = null): self
+    public function setCn23(string $cn23 = null): self
     {
         $this->cn23 = $cn23;
         return $this;

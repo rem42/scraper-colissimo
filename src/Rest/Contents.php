@@ -1,33 +1,29 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Scraper\ScraperColissimo\Rest;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
-
 final class Contents
 {
-    /** @var Collection<int, Article> */
-    private Collection $article;
+    /** @var array<int, Article> */
+    private array $article = [];
 
     private Category $category;
 
     public function __construct()
     {
-        $this->article  = new ArrayCollection();
         $this->category = new Category();
     }
 
     public function addArticle(Article $article): self
     {
-        $this->article->add($article);
+        $this->article[] = $article;
         return $this;
     }
 
     /**
-     * @return Collection<int, Article>
+     * @return array<int, Article>
      */
-    public function getArticle(): Collection
+    public function getArticle(): array
     {
         return $this->article;
     }

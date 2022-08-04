@@ -1,8 +1,9 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Scraper\ScraperColissimo\Request;
 
-use Scraper\Scraper\Annotation\Scraper;
+use Scraper\Scraper\Attribute\Method;
+use Scraper\Scraper\Attribute\Scraper;
 use Scraper\Scraper\Request\RequestBody;
 use Scraper\Scraper\Request\RequestException;
 use Scraper\Scraper\Request\RequestHeaders;
@@ -12,6 +13,7 @@ use Scraper\ScraperColissimo\Rest\GenerateLabelRequest;
 /**
  * @Scraper(path="generateLabel", method="POST")
  */
+#[Scraper(method: Method::POST, path: 'generateLabel')]
 class ColissimoGenerateLabelRequest extends ColissimoRequest implements RequestBody, RequestHeaders, RequestException
 {
     protected GenerateLabelRequest $generateLabelRequest;
@@ -39,9 +41,9 @@ class ColissimoGenerateLabelRequest extends ColissimoRequest implements RequestB
 
     public function getBody(): string
     {
-        $serializer = SerializerFactory::create();
-
-        return $serializer->serialize($this->generateLabelRequest, 'json');
+        return SerializerFactory::create()
+            ->serialize($this->generateLabelRequest, 'json')
+        ;
     }
 
     public function getGenerateLabelRequest(): GenerateLabelRequest
