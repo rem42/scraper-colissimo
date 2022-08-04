@@ -1,12 +1,11 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Scraper\ScraperColissimo\Tests\Api;
 
 use PHPUnit\Framework\TestCase;
-use Scraper\Scraper\Annotation\Scraper;
+use Scraper\Scraper\Attribute\Scraper;
 use Scraper\Scraper\Request\ScraperRequest;
 use Scraper\ScraperColissimo\Api\ColissimoGenerateLabelApi;
-use Scraper\ScraperColissimo\Entity\ColissimoGenerateLabel;
 use Symfony\Contracts\HttpClient\ResponseInterface;
 
 /**
@@ -33,12 +32,10 @@ class ColissimoGenerateLabelApiTest extends TestCase
 
         $result = $colissimoGenerateLabelApi->execute();
 
-        $this->assertInstanceOf(ColissimoGenerateLabel::class, $result);
+        $this->assertCount(1, $result->response->messages);
 
-        $this->assertCount(1, $result->getResponse()->getMessages());
+        $this->assertEquals('6A00420042004', $result->response->labelResponse->parcelNumber);
 
-        $this->assertEquals('6A00420042004', $result->getResponse()->getLabelResponse()->getParcelNumber());
-
-        $this->assertEquals('0000000000A0000000000000000V', $result->getResponse()->getLabelResponse()->getParcelNumberPartner());
+        $this->assertEquals('0000000000A0000000000000000V', $result->response->labelResponse->parcelNumberPartner);
     }
 }

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Scraper\ScraperColissimo\Adapter;
 
@@ -14,8 +14,8 @@ final class ColissimoAdapter
         if ($response->getStatusCode() >= 300 || $response->getStatusCode() < 200) {
             self::handleException($response);
         }
-        $content      = $response->getContent();
-        $colissimoXML = new ColissimoJSON();
+        $content       = $response->getContent();
+        $colissimoJSON = new ColissimoJSON();
 
         $result = self::extractData($content);
 
@@ -25,18 +25,18 @@ final class ColissimoAdapter
             $header = self::extractHeader($item);
 
             if (\count($header) > 0) {
-                if (false !== strpos((string) $header['Content-Type'], 'application/json')) {
-                    $colissimoXML->setJson(trim(substr($item, (int) $header['offsetEnd'])));
+                if (str_contains((string) $header['Content-Type'], 'application/json')) {
+                    $colissimoJSON->setJson(trim(substr($item, (int) $header['offsetEnd'])));
                 } elseif (3 === $i) {
-                    $colissimoXML->setCn23(trim(substr($item, (int) $header['offsetEnd'])));
+                    $colissimoJSON->setCn23(trim(substr($item, (int) $header['offsetEnd'])));
                 } else {
-                    $colissimoXML->setFile(trim(substr($item, (int) $header['offsetEnd'])));
+                    $colissimoJSON->setFile(trim(substr($item, (int) $header['offsetEnd'])));
                 }
             }
             $i++;
         }
 
-        return $colissimoXML;
+        return $colissimoJSON;
     }
 
     private static function handleException(ResponseInterface $response): void
@@ -51,9 +51,10 @@ final class ColissimoAdapter
 
         $header = self::extractHeader($data);
 
-        $messages = json_decode(trim(substr($data, (int) $header['offsetEnd'])))->messages;
+        /** @var \stdClass $exception */
+        $exception = json_decode(trim(substr($data, (int) $header['offsetEnd'])), false, 512, \JSON_THROW_ON_ERROR);
 
-        throw new ColissimoResponseException('Colissimo request error: ', $messages);
+        throw new ColissimoResponseException('Colissimo request error: ', $exception->messages ?? []);
     }
 
     /**

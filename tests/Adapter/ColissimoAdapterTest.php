@@ -1,10 +1,9 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Scraper\ScraperColissimo\Tests\Adapter;
 
 use PHPUnit\Framework\TestCase;
 use Scraper\ScraperColissimo\Adapter\ColissimoAdapter;
-use Scraper\ScraperColissimo\Entity\ColissimoJSON;
 use Scraper\ScraperColissimo\Exception\ColissimoResponseException;
 use Scraper\ScraperColissimo\Exception\ColissimoResponseUnknownException;
 use Symfony\Contracts\HttpClient\ResponseInterface;
@@ -50,8 +49,6 @@ class ColissimoAdapterTest extends TestCase
             ->method('getContent')->willReturn("--uuid:9c80b689-ba3d-4c9e-8b30-344b5497b20e\r\nContent-Type: application/json;charset=UTF-8\r\nContent-Transfer-Encoding: binary\r\nContent-ID: <jsonInfos>\r\n\r\n{\"messages\":[{\"id\":\"0\",\"type\":\"INFOS\",\"messageContent\":\"La requête a été traitée avec succès\",\"replacementValues\":[]}],\"labelXmlV2Reponse\":null,\"labelV2Response\":{\"parcelNumber\":\"6A20552612148\",\"parcelNumberPartner\":\"0074570116A2055261214801250V\",\"pdfUrl\":null,\"fields\":null}}\r\n--uuid:9c80b689-ba3d-4c9e-8b30-344b5497b20e--");
 
         $result = ColissimoAdapter::execute($responseInterface);
-
-        $this->assertInstanceOf(ColissimoJSON::class, $result);
 
         $this->assertNotEmpty($result->getJson());
     }
