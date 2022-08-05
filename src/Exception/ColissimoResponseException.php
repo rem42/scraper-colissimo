@@ -12,7 +12,7 @@ class ColissimoResponseException extends ColissimoException
      */
     public function __construct(string $message = '', array $data = [])
     {
-        $this->data  = $data;
+        $this->data = $data;
         $dataMessage = [];
 
         foreach ($data as $datum) {

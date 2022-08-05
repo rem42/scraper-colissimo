@@ -17,7 +17,7 @@ final class GenerateLabelRequest
     public function __construct()
     {
         $this->outputFormat = new OutputFormat();
-        $this->letter       = new Letter();
+        $this->letter = new Letter();
     }
 
     public function getOutputFormat(): OutputFormat

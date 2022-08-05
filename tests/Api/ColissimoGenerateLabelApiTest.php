@@ -16,7 +16,7 @@ class ColissimoGenerateLabelApiTest extends TestCase
     public function testOk(): void
     {
         $scraperRequest = $this->createMock(ScraperRequest::class);
-        $scraper        = new Scraper();
+        $scraper = new Scraper();
 
         $responseInterface = $this->createMock(ResponseInterface::class);
         $responseInterface

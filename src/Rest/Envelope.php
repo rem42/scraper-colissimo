@@ -11,7 +11,7 @@ final class Envelope
     public function __construct()
     {
         $this->header = new Header();
-        $this->body   = new Body();
+        $this->body = new Body();
     }
 
     public function getHeader(): Header

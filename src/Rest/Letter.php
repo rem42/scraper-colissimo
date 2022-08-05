@@ -16,9 +16,9 @@ final class Letter
 
     public function __construct()
     {
-        $this->service   = new Service();
-        $this->parcel    = new Parcel();
-        $this->sender    = new Sender();
+        $this->service = new Service();
+        $this->parcel = new Parcel();
+        $this->sender = new Sender();
         $this->addressee = new Addressee();
     }
 

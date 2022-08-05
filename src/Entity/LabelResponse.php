@@ -6,5 +6,5 @@ final class LabelResponse
 {
     public string $parcelNumber;
     public ?string $parcelNumberPartner = null;
-    public ?string $pdfUrl              = null;
+    public ?string $pdfUrl = null;
 }

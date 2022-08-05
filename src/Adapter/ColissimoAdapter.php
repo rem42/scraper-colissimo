@@ -14,7 +14,7 @@ final class ColissimoAdapter
         if ($response->getStatusCode() >= 300 || $response->getStatusCode() < 200) {
             self::handleException($response);
         }
-        $content       = $response->getContent();
+        $content = $response->getContent();
         $colissimoJSON = new ColissimoJSON();
 
         $result = self::extractData($content);
@@ -42,7 +42,7 @@ final class ColissimoAdapter
     private static function handleException(ResponseInterface $response): void
     {
         $content = $response->getContent(false);
-        $data    = self::extractData($content);
+        $data = self::extractData($content);
 
         if (1 !== \count($data)) {
             throw new ColissimoResponseUnknownException('Colissimo error, more than one value expected');
@@ -90,20 +90,20 @@ final class ColissimoAdapter
      */
     private static function extractHeader(string $part): array
     {
-        $content         = 'Content-';
-        $header          = [];
+        $content = 'Content-';
+        $header = [];
         $headerLineStart = strpos($part, $content, 0);
-        $endLine         = 0;
+        $endLine = 0;
         while (false !== $headerLineStart) {
             $header['offsetStart'] = $headerLineStart;
-            $endLine               = strpos($part, "\r\n", $headerLineStart);
-            $headerLine            = explode(': ', substr(
+            $endLine = strpos($part, "\r\n", $headerLineStart);
+            $headerLine = explode(': ', substr(
                 $part,
                 $headerLineStart,
                 $endLine - $headerLineStart
             ));
             $header[$headerLine[0]] = $headerLine[1];
-            $headerLineStart        = strpos($part, $content, (int) $endLine);
+            $headerLineStart = strpos($part, $content, (int) $endLine);
         }
         $header['offsetEnd'] = $endLine;
 
