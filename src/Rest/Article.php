@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Scraper\ScraperColissimo\Rest;
 
@@ -79,7 +79,7 @@ final class Article
         return $this->hsCode;
     }
 
-    public function setHsCode(?string $hsCode = null): self
+    public function setHsCode(string $hsCode = null): self
     {
         $this->hsCode = $hsCode;
 
@@ -91,7 +91,7 @@ final class Article
         return $this->originCountry;
     }
 
-    public function setOriginCountry(?string $originCountry = null): self
+    public function setOriginCountry(string $originCountry = null): self
     {
         $this->originCountry = $originCountry;
 
@@ -103,7 +103,7 @@ final class Article
         return $this->currency;
     }
 
-    public function setCurrency(?string $currency = null): self
+    public function setCurrency(string $currency = null): self
     {
         $this->currency = $currency;
 
@@ -115,7 +115,7 @@ final class Article
         return $this->artref;
     }
 
-    public function setArtref(?string $artref = null): self
+    public function setArtref(string $artref = null): self
     {
         $this->artref = $artref;
 
@@ -127,7 +127,7 @@ final class Article
         return $this->originalIdent;
     }
 
-    public function setOriginalIdent(?string $originalIdent = null): self
+    public function setOriginalIdent(string $originalIdent = null): self
     {
         $this->originalIdent = $originalIdent;
 
@@ -139,7 +139,7 @@ final class Article
         return $this->vatAmount;
     }
 
-    public function setVatAmount(?int $vatAmount = null): self
+    public function setVatAmount(int $vatAmount = null): self
     {
         $this->vatAmount = $vatAmount;
 
@@ -151,7 +151,7 @@ final class Article
         return $this->customsFees;
     }
 
-    public function setCustomsFees(?int $customsFees = null): self
+    public function setCustomsFees(int $customsFees = null): self
     {
         $this->customsFees = $customsFees;
 

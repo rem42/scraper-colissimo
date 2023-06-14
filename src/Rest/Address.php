@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Scraper\ScraperColissimo\Rest;
 
@@ -43,7 +43,7 @@ final class Address
         return $this->companyName;
     }
 
-    public function setCompanyName(?string $companyName = null): self
+    public function setCompanyName(string $companyName = null): self
     {
         $this->companyName = $companyName;
 
@@ -55,7 +55,7 @@ final class Address
         return $this->lastName;
     }
 
-    public function setLastName(?string $lastName = null): self
+    public function setLastName(string $lastName = null): self
     {
         $this->lastName = $lastName;
 
@@ -67,7 +67,7 @@ final class Address
         return $this->firstName;
     }
 
-    public function setFirstName(?string $firstName = null): self
+    public function setFirstName(string $firstName = null): self
     {
         $this->firstName = $firstName;
 
@@ -79,7 +79,7 @@ final class Address
         return $this->line0;
     }
 
-    public function setLine0(?string $line0 = null): self
+    public function setLine0(string $line0 = null): self
     {
         $this->line0 = $line0;
 
@@ -91,7 +91,7 @@ final class Address
         return $this->line1;
     }
 
-    public function setLine1(?string $line1 = null): self
+    public function setLine1(string $line1 = null): self
     {
         $this->line1 = $line1;
 
@@ -103,7 +103,7 @@ final class Address
         return $this->line2;
     }
 
-    public function setLine2(?string $line2 = null): self
+    public function setLine2(string $line2 = null): self
     {
         $this->line2 = $line2;
 
@@ -115,7 +115,7 @@ final class Address
         return $this->line3;
     }
 
-    public function setLine3(?string $line3 = null): self
+    public function setLine3(string $line3 = null): self
     {
         $this->line3 = $line3;
 
@@ -139,7 +139,7 @@ final class Address
         return $this->city;
     }
 
-    public function setCity(?string $city = null): self
+    public function setCity(string $city = null): self
     {
         $this->city = $city;
 
@@ -163,7 +163,7 @@ final class Address
         return $this->phoneNumber;
     }
 
-    public function setPhoneNumber(?string $phoneNumber = null): self
+    public function setPhoneNumber(string $phoneNumber = null): self
     {
         $this->phoneNumber = $phoneNumber;
 
@@ -175,7 +175,7 @@ final class Address
         return $this->mobileNumber;
     }
 
-    public function setMobileNumber(?string $mobileNumber = null): self
+    public function setMobileNumber(string $mobileNumber = null): self
     {
         $this->mobileNumber = $mobileNumber;
 
@@ -187,7 +187,7 @@ final class Address
         return $this->doorCode1;
     }
 
-    public function setDoorCode1(?string $doorCode1 = null): self
+    public function setDoorCode1(string $doorCode1 = null): self
     {
         $this->doorCode1 = $doorCode1;
 
@@ -199,7 +199,7 @@ final class Address
         return $this->doorCode2;
     }
 
-    public function setDoorCode2(?string $doorCode2 = null): self
+    public function setDoorCode2(string $doorCode2 = null): self
     {
         $this->doorCode2 = $doorCode2;
 
@@ -211,7 +211,7 @@ final class Address
         return $this->email;
     }
 
-    public function setEmail(?string $email = null): self
+    public function setEmail(string $email = null): self
     {
         $this->email = $email;
 
@@ -223,7 +223,7 @@ final class Address
         return $this->intercom;
     }
 
-    public function setIntercom(?string $intercom = null): self
+    public function setIntercom(string $intercom = null): self
     {
         $this->intercom = $intercom;
 

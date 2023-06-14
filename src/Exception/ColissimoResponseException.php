@@ -1,18 +1,18 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Scraper\ScraperColissimo\Exception;
 
 class ColissimoResponseException extends ColissimoException
 {
-    /** @var \stdClass[] */
+    /** @var array<\stdClass> */
     protected array $data = [];
 
     /**
-     * @param \stdClass[] $data
+     * @param array<\stdClass> $data
      */
     public function __construct(string $message = '', array $data = [])
     {
-        $this->data  = $data;
+        $this->data = $data;
         $dataMessage = [];
 
         foreach ($data as $datum) {
@@ -25,7 +25,7 @@ class ColissimoResponseException extends ColissimoException
     }
 
     /**
-     * @return \stdClass[]
+     * @return array<\stdClass>
      */
     public function getData(): array
     {
