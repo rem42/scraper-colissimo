@@ -10,7 +10,7 @@ final class Article
 
     private float $weight;
 
-    private int $value;
+    private float $value;
 
     private ?string $hsCode = null;
 
@@ -62,12 +62,12 @@ final class Article
         return $this;
     }
 
-    public function getValue(): int
+    public function getValue(): float
     {
         return $this->value;
     }
 
-    public function setValue(int $value): self
+    public function setValue(float $value): self
     {
         $this->value = $value;
 
