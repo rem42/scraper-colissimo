@@ -2,6 +2,4 @@
 
 namespace Scraper\ScraperColissimo\Exception;
 
-class ColissimoResponseUnknownException extends ColissimoException
-{
-}
+class ColissimoResponseUnknownException extends ColissimoException {}

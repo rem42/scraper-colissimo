@@ -8,6 +8,4 @@ use Scraper\Scraper\Attribute\Scraper;
 use Scraper\Scraper\Request\ScraperRequest;
 
 #[Scraper(method: Method::GET, scheme: Scheme::HTTPS, host: 'ws.colissimo.fr', path: '/sls-ws/SlsServiceWSRest')]
-abstract class ColissimoRequest extends ScraperRequest
-{
-}
+abstract class ColissimoRequest extends ScraperRequest {}

@@ -2,6 +2,4 @@
 
 namespace Scraper\ScraperColissimo\Rest;
 
-final class Header
-{
-}
+final class Header {}
