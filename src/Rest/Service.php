@@ -4,33 +4,33 @@ namespace Scraper\ScraperColissimo\Rest;
 
 final class Service
 {
-    public static string $A2P = 'A2P';
+    public const A2P = 'A2P';
 
-    public static string $BPR = 'BPR';
+    public const BPR = 'BPR';
 
-    public static string $ACP = 'ACP';
+    public const ACP = 'ACP';
 
-    public static string $CDI = 'CDI';
+    public const CDI = 'CDI';
 
-    public static string $CMT = 'CMT';
+    public const CMT = 'CMT';
 
-    public static string $BDP = 'BDP';
+    public const BDP = 'BDP';
 
-    public static string $PCS = 'PCS';
+    public const PCS = 'PCS';
 
-    public static string $DOM = 'DOM';
+    public const DOM = 'DOM';
 
-    public static string $DOS = 'DOS';
+    public const DOS = 'DOS';
 
-    public static string $BOS = 'BOS';
+    public const BOS = 'BOS';
 
-    public static string $BOM = 'BOM';
+    public const BOM = 'BOM';
 
-    public static string $RECOMMENDATIONLEVEL_R1 = 'R1';
+    public const RECOMMENDATIONLEVEL_R1 = 'R1';
 
-    public static string $RECOMMENDATIONLEVEL_R2 = 'R2';
+    public const RECOMMENDATIONLEVEL_R2 = 'R2';
 
-    public static string $RECOMMENDATIONLEVEL_R3 = 'R3';
+    public const RECOMMENDATIONLEVEL_R3 = 'R3';
 
     private string $productCode;
 
