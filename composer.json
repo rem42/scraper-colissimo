@@ -10,7 +10,7 @@
     }
   ],
   "require": {
-    "php": "^8.1",
+    "php": "^8.4",
     "rem42/scraper": "^3.2",
     "symfony/serializer-pack": "^1.3"
   },
