@@ -6,15 +6,15 @@ namespace Scraper\ScraperColissimo\Rest;
 
 final class Letter
 {
-    private Service $service;
+    private readonly Service $service;
 
-    private Parcel $parcel;
+    private readonly Parcel $parcel;
 
     private ?CustomsDeclarations $customsDeclarations = null;
 
-    private Sender $sender;
+    private readonly Sender $sender;
 
-    private Addressee $addressee;
+    private readonly Addressee $addressee;
 
     public function __construct()
     {

@@ -6,14 +6,14 @@ namespace Scraper\ScraperColissimo\Rest;
 
 final class OutputFormat
 {
-    public const ZPL_10X15_203DPI = 'ZPL_10x15_203dpi';
-    public const ZPL_10X15_300DPI = 'ZPL_10x15_300dpi';
-    public const DPL_10X15_203DPI = 'DPL_10x15_203dpi';
-    public const DPL_10X15_300DPI = 'DPL_10x15_300dpi';
-    public const PDF_10X15_300DPI = 'PDF_10x15_300dpi';
-    public const PDF_A4_300DPI = 'PDF_A4_300dpi';
-    public const RETURNTYPE_SENDPDFBYMAIL = 'SendPDFByMail';
-    public const RETURNTYPE_SENDPDFLINKBYMAIL = 'SendPDFLinkByMail';
+    public const string ZPL_10X15_203DPI = 'ZPL_10x15_203dpi';
+    public const string ZPL_10X15_300DPI = 'ZPL_10x15_300dpi';
+    public const string DPL_10X15_203DPI = 'DPL_10x15_203dpi';
+    public const string DPL_10X15_300DPI = 'DPL_10x15_300dpi';
+    public const string PDF_10X15_300DPI = 'PDF_10x15_300dpi';
+    public const string PDF_A4_300DPI = 'PDF_A4_300dpi';
+    public const string RETURNTYPE_SENDPDFBYMAIL = 'SendPDFByMail';
+    public const string RETURNTYPE_SENDPDFLINKBYMAIL = 'SendPDFLinkByMail';
 
     private int $x = 0;
 

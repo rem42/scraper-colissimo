@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Scraper\ScraperColissimo\Rest;
 
-final class Fields
+final readonly class Fields
 {
     private Field $field;
 
@@ -13,7 +13,7 @@ final class Fields
         $this->field = new Field();
     }
 
-    public function getField(): ?Field
+    public function getField(): Field
     {
         return $this->field;
     }

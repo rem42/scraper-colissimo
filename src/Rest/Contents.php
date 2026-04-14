@@ -9,7 +9,7 @@ final class Contents
     /** @var array<int, Article> */
     private array $article = [];
 
-    private Category $category;
+    private readonly Category $category;
 
     public function __construct()
     {

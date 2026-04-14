@@ -8,7 +8,7 @@ final class Sender
 {
     private ?string $senderParcelRef = null;
 
-    private Address $address;
+    private readonly Address $address;
 
     public function __construct()
     {

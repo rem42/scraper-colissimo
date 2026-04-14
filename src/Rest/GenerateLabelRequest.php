@@ -10,9 +10,9 @@ final class GenerateLabelRequest
 
     private string $password;
 
-    private OutputFormat $outputFormat;
+    private readonly OutputFormat $outputFormat;
 
-    private Letter $letter;
+    private readonly Letter $letter;
 
     private ?Fields $fields = null;
 

@@ -60,6 +60,6 @@ class ColissimoAdapterTest extends TestCase
 
         $result = ColissimoAdapter::execute($responseInterface);
 
-        $this->assertNotEmpty($result->getJson());
+        $this->assertNotEmpty($result->json);
     }
 }

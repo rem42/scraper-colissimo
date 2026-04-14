@@ -28,11 +28,11 @@ final class ColissimoAdapter
 
             if (\count($header) > 0) {
                 if (str_contains((string) $header['Content-Type'], 'application/json')) {
-                    $colissimoJSON->setJson(trim(substr($item, (int) $header['offsetEnd'])));
+                    $colissimoJSON->json = trim(substr($item, (int) $header['offsetEnd']));
                 } elseif (3 === $i) {
-                    $colissimoJSON->setCn23(trim(substr($item, (int) $header['offsetEnd'])));
+                    $colissimoJSON->cn23 = trim(substr($item, (int) $header['offsetEnd']));
                 } else {
-                    $colissimoJSON->setFile(trim(substr($item, (int) $header['offsetEnd'])));
+                    $colissimoJSON->file = trim(substr($item, (int) $header['offsetEnd']));
                 }
             }
             ++$i;

@@ -31,7 +31,7 @@ final class CustomsDeclarations
         $this->contents = new Contents();
     }
 
-    public function isIncludeCustomsDeclarations(): ?bool
+    public function isIncludeCustomsDeclarations(): bool
     {
         return $this->includeCustomsDeclarations;
     }
@@ -55,7 +55,7 @@ final class CustomsDeclarations
         return $this;
     }
 
-    public function getImportersReference(): ?string
+    public function getImportersReference(): string
     {
         return $this->importersReference;
     }
@@ -67,7 +67,7 @@ final class CustomsDeclarations
         return $this;
     }
 
-    public function getFlowTransport(): ?string
+    public function getFlowTransport(): string
     {
         return $this->flowTransport;
     }
@@ -79,7 +79,7 @@ final class CustomsDeclarations
         return $this;
     }
 
-    public function getImportersContact(): ?string
+    public function getImportersContact(): string
     {
         return $this->importersContact;
     }
@@ -91,7 +91,7 @@ final class CustomsDeclarations
         return $this;
     }
 
-    public function getOfficeOrigin(): ?string
+    public function getOfficeOrigin(): string
     {
         return $this->officeOrigin;
     }
@@ -103,7 +103,7 @@ final class CustomsDeclarations
         return $this;
     }
 
-    public function getComments(): ?string
+    public function getComments(): string
     {
         return $this->comments;
     }
@@ -115,7 +115,7 @@ final class CustomsDeclarations
         return $this;
     }
 
-    public function getInvoiceNumber(): ?string
+    public function getInvoiceNumber(): string
     {
         return $this->invoiceNumber;
     }
@@ -127,7 +127,7 @@ final class CustomsDeclarations
         return $this;
     }
 
-    public function getLicenceNumber(): ?string
+    public function getLicenceNumber(): string
     {
         return $this->licenceNumber;
     }
@@ -139,7 +139,7 @@ final class CustomsDeclarations
         return $this;
     }
 
-    public function getCertificatNumber(): ?string
+    public function getCertificatNumber(): string
     {
         return $this->certificatNumber;
     }

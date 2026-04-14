@@ -6,33 +6,33 @@ namespace Scraper\ScraperColissimo\Rest;
 
 final class Service
 {
-    public const A2P = 'A2P';
+    public const string A2P = 'A2P';
 
-    public const BPR = 'BPR';
+    public const string BPR = 'BPR';
 
-    public const ACP = 'ACP';
+    public const string ACP = 'ACP';
 
-    public const CDI = 'CDI';
+    public const string CDI = 'CDI';
 
-    public const CMT = 'CMT';
+    public const string CMT = 'CMT';
 
-    public const BDP = 'BDP';
+    public const string BDP = 'BDP';
 
-    public const PCS = 'PCS';
+    public const string PCS = 'PCS';
 
-    public const DOM = 'DOM';
+    public const string DOM = 'DOM';
 
-    public const DOS = 'DOS';
+    public const string DOS = 'DOS';
 
-    public const BOS = 'BOS';
+    public const string BOS = 'BOS';
 
-    public const BOM = 'BOM';
+    public const string BOM = 'BOM';
 
-    public const RECOMMENDATIONLEVEL_R1 = 'R1';
+    public const string RECOMMENDATIONLEVEL_R1 = 'R1';
 
-    public const RECOMMENDATIONLEVEL_R2 = 'R2';
+    public const string RECOMMENDATIONLEVEL_R2 = 'R2';
 
-    public const RECOMMENDATIONLEVEL_R3 = 'R3';
+    public const string RECOMMENDATIONLEVEL_R3 = 'R3';
 
     private string $productCode;
 

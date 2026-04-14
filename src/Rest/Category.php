@@ -6,21 +6,21 @@ namespace Scraper\ScraperColissimo\Rest;
 
 final class Category
 {
-    public const GIFT = '1';
+    public const string GIFT = '1';
 
-    public const COMMERCIAL_SAMPLE = '2';
+    public const string COMMERCIAL_SAMPLE = '2';
 
-    public const COMMERCIAL = '3';
+    public const string COMMERCIAL = '3';
 
-    public const DOCUMENT = '4';
+    public const string DOCUMENT = '4';
 
-    public const OTHER = '5';
+    public const string OTHER = '5';
 
-    public const MERCHANDISE_RETURN = '6';
+    public const string MERCHANDISE_RETURN = '6';
 
     private string $value;
 
-    public function getValue(): ?string
+    public function getValue(): string
     {
         return $this->value;
     }

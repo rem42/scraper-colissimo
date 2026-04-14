@@ -6,18 +6,16 @@ namespace Scraper\ScraperColissimo\Exception;
 
 class ColissimoResponseException extends ColissimoException
 {
-    /** @var array<\stdClass> */
-    protected array $data = [];
-
     /**
      * @param array<\stdClass> $data
      */
-    public function __construct(string $message = '', array $data = [])
-    {
-        $this->data = $data;
+    public function __construct(
+        string $message = '',
+        protected array $data = [],
+    ) {
         $dataMessage = [];
 
-        foreach ($data as $datum) {
+        foreach ($this->data as $datum) {
             $dataMessage[] = $datum->messageContent;
         }
 

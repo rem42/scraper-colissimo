@@ -31,7 +31,7 @@ final class Addressee
         return $this;
     }
 
-    public function isCodeBarForReference(): ?bool
+    public function isCodeBarForReference(): bool
     {
         return $this->codeBarForReference;
     }

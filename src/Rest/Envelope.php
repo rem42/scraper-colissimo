@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Scraper\ScraperColissimo\Rest;
 
-final class Envelope
+final readonly class Envelope
 {
     private Header $header;
 
