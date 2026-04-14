@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Scraper\ScraperColissimo\Rest;
 
@@ -27,7 +29,7 @@ final class Letter
         return $this->customsDeclarations;
     }
 
-    public function setCustomsDeclarations(CustomsDeclarations $customsDeclarations = null): self
+    public function setCustomsDeclarations(?CustomsDeclarations $customsDeclarations = null): self
     {
         $this->customsDeclarations = $customsDeclarations;
 

@@ -1,7 +1,10 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Scraper\ScraperColissimo\Tests\Api;
 
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use Scraper\Scraper\Attribute\Scraper;
 use Scraper\Scraper\Request\ScraperRequest;
@@ -11,6 +14,7 @@ use Symfony\Contracts\HttpClient\ResponseInterface;
 /**
  * @internal
  */
+#[CoversClass(ColissimoGenerateLabelApi::class)]
 class ColissimoGenerateLabelApiTest extends TestCase
 {
     public function testOk(): void

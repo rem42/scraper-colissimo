@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Scraper\ScraperColissimo\Api;
 
@@ -11,6 +13,7 @@ final class ColissimoGenerateLabelApi extends ColissimoApi
     public function execute(): ColissimoGenerateLabel
     {
         $colissimoAdapter = ColissimoAdapter::execute($this->response);
+
         /** @var Response $response */
         $response = $this->serializer->deserialize($colissimoAdapter->getJson(), Response::class, 'json');
 

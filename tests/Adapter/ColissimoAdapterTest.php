@@ -1,7 +1,10 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Scraper\ScraperColissimo\Tests\Adapter;
 
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use Scraper\ScraperColissimo\Adapter\ColissimoAdapter;
 use Scraper\ScraperColissimo\Exception\ColissimoResponseException;
@@ -11,6 +14,7 @@ use Symfony\Contracts\HttpClient\ResponseInterface;
 /**
  * @internal
  */
+#[CoversClass(ColissimoAdapter::class)]
 class ColissimoAdapterTest extends TestCase
 {
     public function testWithWrongResponseHttpCodeAndEmptyResponse(): void

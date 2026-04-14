@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Scraper\ScraperColissimo\Rest;
 
@@ -79,7 +81,7 @@ final class Service
         return $this->mailBoxPicking;
     }
 
-    public function setMailBoxPicking(bool $mailBoxPicking = null): self
+    public function setMailBoxPicking(?bool $mailBoxPicking = null): self
     {
         $this->mailBoxPicking = $mailBoxPicking;
 
@@ -91,7 +93,7 @@ final class Service
         return $this->mailBoxPickingDate;
     }
 
-    public function setMailBoxPickingDate(\DateTime $mailBoxPickingDate = null): self
+    public function setMailBoxPickingDate(?\DateTime $mailBoxPickingDate = null): self
     {
         $this->mailBoxPickingDate = $mailBoxPickingDate;
 
@@ -115,7 +117,7 @@ final class Service
         return $this->totalAmount;
     }
 
-    public function setTotalAmount(int $totalAmount = null): self
+    public function setTotalAmount(?int $totalAmount = null): self
     {
         $this->totalAmount = $totalAmount;
 
@@ -127,7 +129,7 @@ final class Service
         return $this->orderNumber;
     }
 
-    public function setOrderNumber(string $orderNumber = null): self
+    public function setOrderNumber(?string $orderNumber = null): self
     {
         $this->orderNumber = $orderNumber;
 
@@ -139,7 +141,7 @@ final class Service
         return $this->commercialName;
     }
 
-    public function setCommercialName(string $commercialName = null): self
+    public function setCommercialName(?string $commercialName = null): self
     {
         $this->commercialName = $commercialName;
 
@@ -151,7 +153,7 @@ final class Service
         return $this->returnTypeChoice;
     }
 
-    public function setReturnTypeChoice(string $returnTypeChoice = null): self
+    public function setReturnTypeChoice(?string $returnTypeChoice = null): self
     {
         $this->returnTypeChoice = $returnTypeChoice;
 

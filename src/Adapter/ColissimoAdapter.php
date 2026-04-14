@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Scraper\ScraperColissimo\Adapter;
 
@@ -33,7 +35,7 @@ final class ColissimoAdapter
                     $colissimoJSON->setFile(trim(substr($item, (int) $header['offsetEnd'])));
                 }
             }
-            $i++;
+            ++$i;
         }
 
         return $colissimoJSON;
@@ -65,7 +67,7 @@ final class ColissimoAdapter
         $result = [];
 
         if (preg_match_all('/--uuid:/', $data, $matches, \PREG_OFFSET_CAPTURE)) {
-            for ($i = 0; $i < \count($matches[0]) - 1; $i++) {
+            for ($i = 0; $i < \count($matches[0]) - 1; ++$i) {
                 if ($i + 1 < \count($matches[0])) {
                     $result[$i] = substr(
                         $data,
@@ -94,6 +96,7 @@ final class ColissimoAdapter
         $header = [];
         $headerLineStart = strpos($part, $content, 0);
         $endLine = 0;
+
         while (false !== $headerLineStart) {
             $header['offsetStart'] = $headerLineStart;
             $endLine = strpos($part, "\r\n", $headerLineStart);

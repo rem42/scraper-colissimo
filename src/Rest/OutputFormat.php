@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Scraper\ScraperColissimo\Rest;
 
@@ -62,7 +64,7 @@ final class OutputFormat
         return $this->returnType;
     }
 
-    public function setReturnType(string $returnType = null): self
+    public function setReturnType(?string $returnType = null): self
     {
         $this->returnType = $returnType;
 

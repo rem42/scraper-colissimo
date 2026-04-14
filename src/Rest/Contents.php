@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Scraper\ScraperColissimo\Rest;
 
@@ -17,6 +19,7 @@ final class Contents
     public function addArticle(Article $article): self
     {
         $this->article[] = $article;
+
         return $this;
     }
 

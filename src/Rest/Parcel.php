@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Scraper\ScraperColissimo\Rest;
 
@@ -101,7 +103,7 @@ final class Parcel
         return $this->instructions;
     }
 
-    public function setInstructions(string $instructions = null): self
+    public function setInstructions(?string $instructions = null): self
     {
         $this->instructions = $instructions;
 
@@ -113,7 +115,7 @@ final class Parcel
         return $this->pickupLocationId;
     }
 
-    public function setPickupLocationId(string $pickupLocationId = null): self
+    public function setPickupLocationId(?string $pickupLocationId = null): self
     {
         $this->pickupLocationId = $pickupLocationId;
 
