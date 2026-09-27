@@ -6,7 +6,9 @@ namespace Scraper\ScraperColissimo\Tests\Api;
 
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
-use Scraper\Scraper\Attribute\Scraper;
+use Scraper\Scraper\Attribute\Method;
+use Scraper\Scraper\Attribute\Scheme;
+use Scraper\Scraper\Dto\ScraperConfig;
 use Scraper\Scraper\Request\ScraperRequest;
 use Scraper\ScraperColissimo\Api\ColissimoGenerateLabelApi;
 use Symfony\Contracts\HttpClient\ResponseInterface;
@@ -20,7 +22,7 @@ class ColissimoGenerateLabelApiTest extends TestCase
     public function testOk(): void
     {
         $scraperRequest = $this->createMock(ScraperRequest::class);
-        $scraper = new Scraper();
+        $scraper = new ScraperConfig(Method::POST, Scheme::HTTPS, 'ws.colissimo.fr', '/sls-ws/SlsServiceWSRest/generateLabel');
 
         $responseInterface = $this->createMock(ResponseInterface::class);
         $responseInterface
