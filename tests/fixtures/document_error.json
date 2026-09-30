@@ -1,0 +1,10 @@
+{
+    "errorCode": "005",
+    "errorLabel": "BODY INVALID",
+    "errors": [
+        {
+            "code": 150,
+            "message": "Numéro de colis invalide"
+        }
+    ]
+}
