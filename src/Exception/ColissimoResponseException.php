@@ -4,52 +4,31 @@ declare(strict_types=1);
 
 namespace Scraper\ScraperColissimo\Exception;
 
-use Scraper\ScraperColissimo\Model\Message;
-
-/**
- * Functional error returned by a Colissimo API (invalid field, unknown parcel, authentication failure...).
- */
 class ColissimoResponseException extends ColissimoException
 {
     /**
-     * @param list<Message> $messages
+     * @param array<\stdClass> $data
      */
     public function __construct(
         string $message = '',
-        private readonly array $messages = [],
-        private readonly int $statusCode = 0,
+        protected array $data = [],
     ) {
-        $details = [];
+        $dataMessage = [];
 
-        foreach ($this->messages as $item) {
-            $details[] = '' !== $item->id ? \sprintf('[%s] %s', $item->id, $item->messageContent) : $item->messageContent;
+        foreach ($this->data as $datum) {
+            $dataMessage[] = $datum->messageContent;
         }
 
-        if ([] !== $details) {
-            $message .= ': ' . implode(', ', $details);
-        }
+        $message .= implode(', ', $dataMessage);
 
-        parent::__construct($message, $statusCode);
+        parent::__construct($message);
     }
 
     /**
-     * @return list<Message>
+     * @return array<\stdClass>
      */
-    public function getMessages(): array
+    public function getData(): array
     {
-        return $this->messages;
-    }
-
-    /**
-     * @return list<string>
-     */
-    public function getErrorCodes(): array
-    {
-        return array_values(array_map(static fn (Message $message): string => $message->id, $this->messages));
-    }
-
-    public function getStatusCode(): int
-    {
-        return $this->statusCode;
+        return $this->data;
     }
 }
