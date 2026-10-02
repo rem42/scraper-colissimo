@@ -4,52 +4,30 @@ declare(strict_types=1);
 
 namespace Scraper\ScraperColissimo\Request;
 
-use Scraper\Scraper\Attribute\Method;
 use Scraper\Scraper\Attribute\Scraper;
-use Scraper\Scraper\Request\RequestBody;
-use Scraper\Scraper\Request\RequestException;
-use Scraper\Scraper\Request\RequestHeaders;
-use Scraper\ScraperColissimo\Factory\SerializerFactory;
-use Scraper\ScraperColissimo\Rest\GenerateLabelRequest;
+use Scraper\ScraperColissimo\Model\Credential;
+use Scraper\ScraperColissimo\Model\Label\GenerateLabel;
 
 /**
- * @Scraper(path="generateLabel", method="POST")
+ * Creates a shipment: parcel announcement + label + customs declaration (CN23).
  */
-#[Scraper(method: Method::POST, path: 'generateLabel')]
-class ColissimoGenerateLabelRequest extends ColissimoRequest implements RequestBody, RequestHeaders, RequestException
+#[Scraper(path: 'generateLabel')]
+class ColissimoGenerateLabelRequest extends ColissimoSlsRequest
 {
-    protected GenerateLabelRequest $generateLabelRequest;
-
-    public function __construct(string $contractNumber, string $password)
-    {
-        $this->generateLabelRequest = new GenerateLabelRequest();
-        $this->generateLabelRequest
-            ->setContractNumber($contractNumber)
-            ->setPassword($password)
-        ;
+    public function __construct(
+        Credential $credential,
+        protected GenerateLabel $generateLabel = new GenerateLabel(),
+    ) {
+        parent::__construct($credential);
     }
 
-    public function isThrow(): bool
+    public function getGenerateLabel(): GenerateLabel
     {
-        return false;
+        return $this->generateLabel;
     }
 
-    public function getHeaders(): array
+    protected function getPayload(): GenerateLabel
     {
-        return [
-            'Content-Type' => 'application/json',
-        ];
-    }
-
-    public function getBody(): string
-    {
-        return SerializerFactory::create()
-            ->serialize($this->generateLabelRequest, 'json')
-        ;
-    }
-
-    public function getGenerateLabelRequest(): GenerateLabelRequest
-    {
-        return $this->generateLabelRequest;
+        return $this->generateLabel;
     }
 }

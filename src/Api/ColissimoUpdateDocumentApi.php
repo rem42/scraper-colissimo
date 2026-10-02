@@ -4,4 +4,4 @@ declare(strict_types=1);
 
 namespace Scraper\ScraperColissimo\Api;
 
-final class ColissimoGenerateLabelApi extends ColissimoSlsApi {}
+final class ColissimoUpdateDocumentApi extends ColissimoDocumentApi {}

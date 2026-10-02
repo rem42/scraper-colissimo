@@ -1,0 +1,10 @@
+{
+    "lang": "fr_FR",
+    "status": [
+        {
+            "code": "105",
+            "message": "Numéro de colis inconnu"
+        }
+    ],
+    "parcel": null
+}
