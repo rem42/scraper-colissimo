@@ -16,14 +16,9 @@ class ColissimoGenerateLabelRequest extends ColissimoSlsRequest
 {
     public function __construct(
         Credential $credential,
-        protected GenerateLabel $generateLabel = new GenerateLabel(),
+        protected GenerateLabel $generateLabel,
     ) {
         parent::__construct($credential);
-    }
-
-    public function getGenerateLabel(): GenerateLabel
-    {
-        return $this->generateLabel;
     }
 
     protected function getPayload(): GenerateLabel
