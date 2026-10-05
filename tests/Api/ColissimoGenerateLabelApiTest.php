@@ -128,7 +128,7 @@ final class ColissimoGenerateLabelApiTest extends TestCase
     {
         $this->expectException(\InvalidArgumentException::class);
 
-        new ColissimoGenerateLabelRequest(Credential::login('login', 'password'));
+        new ColissimoGenerateLabelRequest(Credential::login('login', 'password'), self::createUnitedStatesLabel());
     }
 
     private static function createUnitedStatesLabel(): GenerateLabel
