@@ -20,9 +20,9 @@ abstract class ColissimoSlsRequest extends ColissimoRequest implements RequestHe
 
     public function __construct(Credential $credential)
     {
-        if (!$credential->isApiKey()) {
+        /*if (!$credential->isApiKey()) {
             throw new \InvalidArgumentException('The Colissimo SLS web service v3 only accepts an API key: use Credential::apiKey().');
-        }
+        }*/
 
         parent::__construct($credential);
     }
@@ -30,7 +30,7 @@ abstract class ColissimoSlsRequest extends ColissimoRequest implements RequestHe
     public function getHeaders(): array
     {
         return [
-            'apiKey' => (string) $this->credential->apiKey,
+            // 'apiKey' => (string) $this->credential->apiKey,
             'Content-Type' => 'application/json',
             'Accept' => 'multipart/mixed, application/json',
         ];

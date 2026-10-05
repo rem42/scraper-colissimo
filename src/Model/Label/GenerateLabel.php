@@ -11,15 +11,20 @@ final class GenerateLabel
 {
     /** A master parcel can reference at most 5 parcels in LIST_FOLLOWER_PARCEL. */
     public const int MULTI_PARCEL_MAX_PARCELS = 5;
-
+    public string $contractNumber;
+    public string $password;
     public OutputFormat $outputFormat;
     public Letter $letter;
     public ?Fields $fields = null;
 
     public function __construct(
+        string $contractNumber,
+        string $password,
         ?OutputFormat $outputFormat = null,
         ?Letter $letter = null,
     ) {
+        $this->contractNumber = $contractNumber;
+        $this->password = $password;
         $this->outputFormat = $outputFormat ?? new OutputFormat();
         $this->letter = $letter ?? new Letter();
     }
