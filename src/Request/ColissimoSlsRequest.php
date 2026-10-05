@@ -30,7 +30,7 @@ abstract class ColissimoSlsRequest extends ColissimoRequest implements RequestHe
     public function getHeaders(): array
     {
         return [
-            // 'apiKey' => (string) $this->credential->apiKey,
+            'apiKey' => (string) $this->credential->apiKey,
             'Content-Type' => 'application/json',
             'Accept' => 'multipart/mixed, application/json',
         ];
